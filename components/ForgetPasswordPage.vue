@@ -13,6 +13,7 @@
     <form class="grid gap-4 w-full">
       <FloatLabel>
         <InputText
+          v-model="email"
           filled
           class="w-full"
           label="Email"
