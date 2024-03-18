@@ -8,6 +8,7 @@
     @click="loginWithOAuth(source)"
   />
 </template>
+
 <script setup lang="ts">
 import type { Provider } from "@supabase/supabase-js";
 import Button from "./ButtonComponent.vue";

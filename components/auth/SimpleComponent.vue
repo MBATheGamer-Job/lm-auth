@@ -1,84 +1,3 @@
-<script setup lang="ts">
-import { isValidEmail } from "../../utils/email";
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-import { isValidPassword } from "../../utils/password";
-
-const {state} = withDefaults(defineProps<{
-  state: "login" | "signup";
-}>(), {
-  state: "login"
-});
-
-const toast = useToast();
-
-const supabase = useSupabaseClient();
-
-const $router = useRouter();
-
-const email = ref("");
-const password = ref("");
-const isLoading = ref(false);
-
-async function loginWithEmailAndPassword() {
-  isLoading.value = true;
-  try {
-    const { error } = await supabase.auth.signInWithPassword({
-      email: email.value,
-      password: password.value,
-    });
-    if (error) {
-      throw error;
-    }
-    await $router.push("/");
-  } catch (error) {
-    if (error instanceof Error) {
-      toast.add({
-        severity: "error",
-        summary: "Error Message",
-        detail: error.message,
-        life: 3000,
-      });
-    }
-  } finally {
-    isLoading.value = false;
-  }
-}
-
-async function signUp() {
-  isLoading.value = true;
-  try {
-    const { error } = await supabase.auth.signUp({
-      email: email.value,
-      password: password.value,
-      options: {
-        emailRedirectTo: `${window.location.origin}/dashboard`,
-      },
-    });
-    if (error) {
-      throw error;
-    }
-    toast.add({
-      severity: 'success',
-      summary: 'Success Message',
-      detail: `We have sent a confirmation email to ${email.value}`,
-      life: 3000
-    });
-  } catch (error) {
-    if (error instanceof Error) {
-      toast.add({
-        severity: 'error',
-        summary: 'Error Message',
-        detail: `Failed to signup: ${error.message}`,
-        life: 3000
-      });
-    }
-  } finally {
-    isLoading.value = false;
-  }
-}
-</script>
-
 <template>
   <div class="grid gap-6 w-full">
     <FloatLabel>
@@ -154,3 +73,85 @@ async function signUp() {
     />
   </div>
 </template>
+
+<script setup lang="ts">
+import { isValidEmail } from "../../utils/email";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { isValidPassword } from "../../utils/password";
+import Button from "../button/ButtonComponent.vue"
+
+const {state} = withDefaults(defineProps<{
+  state: "login" | "signup";
+}>(), {
+  state: "login"
+});
+
+const toast = useToast();
+
+const supabase = useSupabaseClient();
+
+const $router = useRouter();
+
+const email = ref("");
+const password = ref("");
+const isLoading = ref(false);
+
+async function loginWithEmailAndPassword() {
+  isLoading.value = true;
+  try {
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email.value,
+      password: password.value,
+    });
+    if (error) {
+      throw error;
+    }
+    await $router.push("/");
+  } catch (error) {
+    if (error instanceof Error) {
+      toast.add({
+        severity: "error",
+        summary: "Error Message",
+        detail: error.message,
+        life: 3000,
+      });
+    }
+  } finally {
+    isLoading.value = false;
+  }
+}
+
+async function signUp() {
+  isLoading.value = true;
+  try {
+    const { error } = await supabase.auth.signUp({
+      email: email.value,
+      password: password.value,
+      options: {
+        emailRedirectTo: `${window.location.origin}/dashboard`,
+      },
+    });
+    if (error) {
+      throw error;
+    }
+    toast.add({
+      severity: 'success',
+      summary: 'Success Message',
+      detail: `We have sent a confirmation email to ${email.value}`,
+      life: 3000
+    });
+  } catch (error) {
+    if (error instanceof Error) {
+      toast.add({
+        severity: 'error',
+        summary: 'Error Message',
+        detail: `Failed to signup: ${error.message}`,
+        life: 3000
+      });
+    }
+  } finally {
+    isLoading.value = false;
+  }
+}
+</script>
