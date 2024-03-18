@@ -24,6 +24,7 @@
         type="submit"
         label="Send reset instructions"
         size="large"
+        @click="resetPassword"
       />
       <p>
         Back to
@@ -40,4 +41,43 @@
 
 <script setup lang="ts">
 import ButtonComponent from "./button/ButtonComponent.vue";
+import { ref } from "vue";
+
+
+const toast = useToast();
+
+const supabase = useSupabaseClient();
+
+const email = ref("");
+const isLoading = ref(false);
+
+async function resetPassword() {
+  isLoading.value = true;
+  try {
+    const { error } = await supabase.auth.resetPasswordForEmail(email.value, {
+      redirectTo: `${window.location.origin}/account`,
+    });
+
+    if (error) {
+      throw error;
+    }
+    toast.add({
+      severity: 'success',
+      summary: 'Success Message',
+      detail: "If an account exists with this email address, you will receive password reset instructions",
+      life: 3000
+    });
+  } catch (error) {
+    if (error instanceof Error) {
+      toast.add({
+        severity: "error",
+        summary: "Error Message",
+        detail: error.message,
+        life: 3000,
+      });
+    }
+  } finally {
+    isLoading.value = false;
+  }
+}
 </script>
