@@ -1,9 +1,16 @@
 <template>
-  <Button :icon="icon" :label="label" outlined size="large" @click="loginWithOAuth(source)" severity="secondary" />
+  <Button
+    :icon="icon"
+    :label="label"
+    outlined
+    size="large"
+    severity="secondary"
+    @click="loginWithOAuth(source)"
+  />
 </template>
 <script setup lang="ts">
 import type { Provider } from "@supabase/supabase-js";
-import Button from "./Button.vue";
+import Button from "./ButtonComponent.vue";
 import { ref } from "vue";
 
 const supabase = useSupabaseClient();
@@ -34,6 +41,7 @@ async function loginWithOAuth(provider: Provider) {
     }
   } catch (error) {
     if (error instanceof Error) {
+      console.log(error.message);
     }
   } finally {
     isLoading.value = false;

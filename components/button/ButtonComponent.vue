@@ -9,7 +9,7 @@
     :loading="loading"
     @click="click"
   >
-    <slot></slot>
+    <slot />
   </Button>
 </template>
 

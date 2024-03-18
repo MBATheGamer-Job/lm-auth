@@ -1,7 +1,13 @@
 <template>
   <div class="flex h-10">
-    <img class="logo h-8 mt-1" src="/icons/pickaxe.svg" />
-    <img class="ml-2" src="/logo/LogoWithoutIcon.png" />
+    <img
+      class="logo h-8 mt-1"
+      src="/icons/pickaxe.svg"
+    >
+    <img
+      class="ml-2"
+      src="/logo/LogoWithoutIcon.png"
+    >
   </div>
 </template>
 
