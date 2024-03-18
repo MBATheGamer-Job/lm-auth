@@ -38,6 +38,10 @@
       </p>
     </form>
   </div>
+
+  <div class="card flex justify-content-center">
+    <Toast />
+  </div>
 </template>
 
 <script setup lang="ts">
