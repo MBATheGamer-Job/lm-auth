@@ -57,19 +57,19 @@
         Forgot your password?
       </NuxtLink>
     </p>
-    <Button
+    <ButtonComponent
       v-if="state === 'login'"
       :loading="isLoading"
       label="Start Mining"
       size="large"
       @click="loginWithEmailAndPassword"
     />
-    <Button
+    <ButtonComponent
       v-if="state === 'signup'"
       :loading="isLoading"
       label="Start Mining"
       size="large"
-      color="contrast"
+      severity="contrast"
       @click="signUp"
     />
   </div>
@@ -80,7 +80,7 @@ import { isValidEmail } from "../../utils/email";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { isValidPassword } from "../../utils/password";
-import Button from "../button/ButtonComponent.vue"
+import ButtonComponent from "../button/ButtonComponent.vue"
 
 const {state} = withDefaults(defineProps<{
   state: "login" | "signup";

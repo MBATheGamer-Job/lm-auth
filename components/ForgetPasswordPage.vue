@@ -20,9 +20,8 @@
         />
         <label for="email">Email</label>
       </FloatLabel>
-      <Button
+      <ButtonComponent
         type="submit"
-        unelevated
         label="Send reset instructions"
         size="large"
       />
@@ -40,5 +39,5 @@
 </template>
 
 <script setup lang="ts">
-import Button from "./button/ButtonComponent.vue";
+import ButtonComponent from "./button/ButtonComponent.vue";
 </script>

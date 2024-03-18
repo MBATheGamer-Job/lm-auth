@@ -1,5 +1,5 @@
 <template>
-  <Button
+  <ButtonComponent
     :icon="icon"
     :label="label"
     outlined
@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import type { Provider } from "@supabase/supabase-js";
-import Button from "./ButtonComponent.vue";
+import ButtonComponent from "./ButtonComponent.vue";
 import { ref } from "vue";
 
 const supabase = useSupabaseClient();
