@@ -113,7 +113,7 @@ async function loginWithEmailAndPassword() {
     if (error instanceof Error) {
       toast.add({
         severity: "error",
-        detail: error.message,
+        summary: error.message,
         life: 3000,
       });
     }
@@ -137,14 +137,14 @@ async function signUp() {
     }
     toast.add({
       severity: 'success',
-      detail: `We have sent a confirmation email to ${email.value}`,
+      summary: `We have sent a confirmation email to ${email.value}`,
       life: 3000
     });
   } catch (error) {
     if (error instanceof Error) {
       toast.add({
         severity: 'error',
-        detail: `Failed to signup: ${error.message}`,
+        summary: `Failed to signup: ${error.message}`,
         life: 3000
       });
     }
