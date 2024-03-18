@@ -10,7 +10,7 @@
       Enter the email address associated with your account
     </h2>
 
-    <form class="grid gap-4 w-full">
+    <div class="grid gap-4 w-full">
       <FloatLabel>
         <InputText
           v-model="email"
@@ -22,7 +22,6 @@
         <label for="email">Email</label>
       </FloatLabel>
       <ButtonComponent
-        type="submit"
         label="Send reset instructions"
         size="large"
         @click="resetPassword"
@@ -36,7 +35,7 @@
           Sign in
         </NuxtLink>
       </p>
-    </form>
+    </div>
   </div>
 
   <div class="card flex justify-content-center">
