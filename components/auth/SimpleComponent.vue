@@ -69,6 +69,7 @@
       :loading="isLoading"
       label="Start Mining"
       size="large"
+      color="contrast"
       @click="signUp"
     />
   </div>

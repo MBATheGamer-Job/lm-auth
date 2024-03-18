@@ -18,5 +18,5 @@
 </template>
 
 <script setup lang="ts">
-import "../button/OAuthButton.vue";
+import OAuthButton from '../button/OAuthButton.vue'; "../button/OAuthButton.vue";
 </script>
