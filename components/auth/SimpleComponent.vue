@@ -113,7 +113,6 @@ async function loginWithEmailAndPassword() {
     if (error instanceof Error) {
       toast.add({
         severity: "error",
-        summary: "Error Message",
         detail: error.message,
         life: 3000,
       });
@@ -138,7 +137,6 @@ async function signUp() {
     }
     toast.add({
       severity: 'success',
-      summary: 'Success Message',
       detail: `We have sent a confirmation email to ${email.value}`,
       life: 3000
     });
@@ -146,7 +144,6 @@ async function signUp() {
     if (error instanceof Error) {
       toast.add({
         severity: 'error',
-        summary: 'Error Message',
         detail: `Failed to signup: ${error.message}`,
         life: 3000
       });

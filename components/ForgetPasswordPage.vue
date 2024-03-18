@@ -67,7 +67,6 @@ async function resetPassword() {
     }
     toast.add({
       severity: 'success',
-      summary: 'Success Message',
       detail: "If an account exists with this email address, you will receive password reset instructions",
       life: 3000
     });
@@ -75,7 +74,6 @@ async function resetPassword() {
     if (error instanceof Error) {
       toast.add({
         severity: "error",
-        summary: "Error Message",
         detail: error.message,
         life: 3000,
       });
