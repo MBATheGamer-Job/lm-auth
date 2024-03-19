@@ -6,6 +6,8 @@
     <h1 class="text-5xl font-bold font-[Merriweather]">
       Welcome back!
     </h1>
+    
+    <br>
 
     <SimpleComponent state="login" />
 
