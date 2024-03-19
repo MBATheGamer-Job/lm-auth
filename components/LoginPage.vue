@@ -15,7 +15,7 @@
       align="center"
       type="solid"
     >
-      <b class="text-gray-500">Or sign in with your email</b>
+      <b class="text-gray-500">Or sign in with social email</b>
     </Divider>
 
     <SocialComponent />

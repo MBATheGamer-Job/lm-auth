@@ -3,7 +3,7 @@ import SignupPage from './SignupPage.vue';
 </script>
 
 <template>
-  <div class="flex w-full">
+  <div class="flex w-full z-50 bg-[#f5f5f5]">
     <div class="flex flex-col w-screen lg:w-[550px]">
       <SignupPage />
     </div>
